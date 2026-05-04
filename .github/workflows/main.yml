@@ -28,14 +28,14 @@ jobs:
           OPENAI_API_BASE: ${{ secrets.OPENAI_API_BASE }}
           CUSTOM_CONFIG: ${{ vars.CUSTOM_CONFIG }}
         run: |
-          printf "%b\n" "$CUSTOM_CONFIG" > config/custom.yaml
+          printf "%b\n" "${CUSTOM_CONFIG}" > config/custom.yaml
           echo "Use custom config: "
           cat config/custom.yaml
           uv run src/zotero_arxiv_daily/main.py \
-          executor_source=[arxiv]\
-          arxiv_query=$arxiv_query \
-          smtp_server=smtp.qq.com \
+          executor.source=[arxiv]\
+          arxiv.category=cs.physics.flu-dyn+cs.bubble+cs.wetting transition+cs.Molecular dynamics \
+          smtp.server=smtp.qq.com \
           smtp_port=465 \
-          sender=1097609725@qq.com \
-          sender_password=$sender_password \
-          receiver=1097609725@qq.com
+          smtp.sender=$SENDER \
+          smtp.password=$SENDER_PASSWORD \
+          smtp.receiver=$RECEIVER
