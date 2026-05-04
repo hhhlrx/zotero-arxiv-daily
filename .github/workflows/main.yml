@@ -32,10 +32,10 @@ jobs:
           echo "Use custom config: "
           cat config/custom.yaml
           uv run src/zotero_arxiv_daily/main.py \
-          executor.source=[arxiv]\
-          arxiv.category=cs.physics.flu-dyn+cs.bubble+cs.wetting transition+cs.Molecular dynamics \
+          executor.source=arxiv \
+          arxiv.category="cs.physics.flu-dyn+cs.physics.chem-ph+cs.physics.atm-clus" \
           smtp.server=smtp.qq.com \
-          smtp_port=465 \
+          smtp.port=465 \
           smtp.sender=$SENDER \
           smtp.password=$SENDER_PASSWORD \
           smtp.receiver=$RECEIVER
