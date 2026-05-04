@@ -33,7 +33,7 @@ jobs:
           cat config/custom.yaml
           uv run src/zotero_arxiv_daily/main.py \
           executor.source=arxiv \
-          arxiv.category="cs.physics.flu-dyn+cs.physics.chem-ph+cs.physics.atm-clus" \
+          +arxiv.category="cs.physics.flu-dyn+cs.physics.chem-ph+cs.physics.atm-clus" \
           smtp.server=smtp.qq.com \
           smtp.port=465 \
           smtp.sender=$SENDER \
